@@ -1,5 +1,6 @@
 package com.farmabig.apifarmacia.controller;
 
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -41,14 +42,15 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Produto>> getByNome(@PathVariable String nome){
-		return ResponseEntity.ok(produtoRepository.findAllByNomeContainingIgnoreCase(nome));
+	public ResponseEntity<List<Produto>> getByNomeProduto(@PathVariable String nomeProduto){
+		return ResponseEntity.ok(produtoRepository.findAllByNomeProdutoContainingIgnoreCase(nomeProduto));
 	}
 	
 	@GetMapping("/fabricante/{fabricante}")
 	public ResponseEntity<List<Produto>> getByFabricante(@PathVariable String fabricante){
 		return ResponseEntity.ok(produtoRepository.findAllByFabricanteContainingIgnoreCase(fabricante));
 	}
+	
 	
 	@PostMapping
 	public ResponseEntity<Produto> postProduto (@Valid @RequestBody Produto produto){

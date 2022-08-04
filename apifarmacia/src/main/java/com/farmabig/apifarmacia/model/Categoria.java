@@ -24,15 +24,28 @@ public class Categoria {
 	
 	@NotBlank(message = "O atributo nome é obrigatório e não pode utilizar espaços em branco!") 
 	@Size(min = 5, max = 100)
-	private String nome;
+	private String nomeCategoria;
 	
-	@NotBlank(message = "O atributo tipo é obrigatório e não pode utilizar espaços em branco!") 
-	@Size(min = 5, max = 100)
-	private String tipo;
 	
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("categoria")
-	private List<Produto> postagem;
+	private List<Produto> produto;
+
+	public String getNomeCategoria() {
+		return nomeCategoria;
+	}
+
+	public void setNomeCategoria(String nomeCategoria) {
+		this.nomeCategoria = nomeCategoria;
+	}
+
+	public List<Produto> getProduto() {
+		return produto;
+	}
+
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
+	}
 
 	public Long getId() {
 		return id;
@@ -40,30 +53,6 @@ public class Categoria {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
-	public List<Produto> getPostagem() {
-		return postagem;
-	}
-
-	public void setPostagem(List<Produto> postagem) {
-		this.postagem = postagem;
 	}
 
 }

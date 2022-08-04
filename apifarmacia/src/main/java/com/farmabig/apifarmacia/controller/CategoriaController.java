@@ -41,13 +41,8 @@ public class CategoriaController {
 	}
 	
 	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Categoria>> getByNome(@PathVariable String nome){
-		return ResponseEntity.ok(categoriaRepository.findAllByNomeContainingIgnoreCase(nome));
-	}
-	
-	@GetMapping("/tipo/{tipo}")
-	public ResponseEntity<List<Categoria>> getByTipo(@PathVariable String tipo){
-		return ResponseEntity.ok(categoriaRepository.findAllByTipoContainingIgnoreCase(tipo));
+	public ResponseEntity<List<Categoria>> getByNome(@PathVariable String nomeCategoria){
+		return ResponseEntity.ok(categoriaRepository.findAllByNomeCategoriaContainingIgnoreCase(nomeCategoria));
 	}
 	
 	@PostMapping

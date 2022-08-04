@@ -26,7 +26,7 @@ public class Produto {
 
 	@NotBlank(message = "O atributo nome é obrigatório e não pode utilizar espaços em branco!") 
 	@Size(min = 5, max = 100, message = "O atributo nome deve conter no mínimo 05 e no máximo 100 caracteres")
-	private String nome;
+	private String nomeProduto;
 	
 	@NotBlank(message = "O atributo fabricante é obrigatório e não pode utilizar espaços em branco!") 
 	@Size(min = 5, max = 100, message = "O atributo fabricante deve conter no mínimo 05 e no máximo 100 caracteres")
@@ -38,6 +38,8 @@ public class Produto {
 	@NotNull
 	private double preco;
 	
+	private int quantidade;
+
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
@@ -50,12 +52,12 @@ public class Produto {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getNomeProduto() {
+		return nomeProduto;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomeProduto(String nomeProduto) {
+		this.nomeProduto = nomeProduto;
 	}
 
 	public String getFabricante() {
@@ -82,6 +84,14 @@ public class Produto {
 		this.preco = preco;
 	}
 
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
 	public Categoria getCategoria() {
 		return categoria;
 	}
@@ -90,4 +100,5 @@ public class Produto {
 		this.categoria = categoria;
 	}
 
+	
 }
