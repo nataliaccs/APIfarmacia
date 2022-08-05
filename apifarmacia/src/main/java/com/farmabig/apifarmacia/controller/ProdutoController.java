@@ -1,6 +1,7 @@
 package com.farmabig.apifarmacia.controller;
 
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -51,7 +52,11 @@ public class ProdutoController {
 		return ResponseEntity.ok(produtoRepository.findAllByFabricanteContainingIgnoreCase(fabricante));
 	}
 	
-	
+	@GetMapping("/preco_incial/{inicio}/preco_final/{fim}")
+	public ResponseEntity<List<Produto>> getByPrecoEntre(@PathVariable BigDecimal inicio, @PathVariable BigDecimal fim){
+		return ResponseEntity.ok(produtoRepository.findAllByPrecoBetween(inicio, fim));
+	}
+
 	@PostMapping
 	public ResponseEntity<Produto> postProduto (@Valid @RequestBody Produto produto){
 		return ResponseEntity.status(HttpStatus.CREATED).body(produtoRepository.save(produto));

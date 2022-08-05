@@ -1,5 +1,6 @@
 package com.farmabig.apifarmacia.repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,4 +15,7 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
 	public List<Produto> findAllByFabricanteContainingIgnoreCase(@Param("fabricante")String fabricante);
 	
-}
+	public List<Produto> findAllByPrecoBetween(@Param ("inicio") BigDecimal inicio, @Param ("fim") BigDecimal fim);
+
+	}
+

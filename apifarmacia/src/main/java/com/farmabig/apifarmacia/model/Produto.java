@@ -1,5 +1,6 @@
 package com.farmabig.apifarmacia.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -36,7 +37,7 @@ public class Produto {
 	private LocalDateTime datacompra;
 	
 	@NotNull
-	private double preco;
+	private BigDecimal preco;
 	
 	private int quantidade;
 
@@ -76,11 +77,11 @@ public class Produto {
 		this.datacompra = datacompra;
 	}
 
-	public double getPreco() {
+	public BigDecimal getPreco() {
 		return preco;
 	}
 
-	public void setPreco(double preco) {
+	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
 
